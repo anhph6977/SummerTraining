@@ -1,0 +1,38 @@
+<div class="modal-dialog" role="document">
+    <div class="modal-content">
+        <div class="modal-header text-center">
+            <h4 class="modal-title ">Course Information</h4>
+        </div>
+        <p>Course ID: {{ object.id }}</p>
+        <p>Course name: {{ object.course_name }}</p>
+        <p>Students</p>
+        <div class="row">
+            <div class="col-md-12">
+                <table class="table table-sm table-bordered table-hover table-responsive-sm">
+                    <thead class="thead-dark">
+                    <th scope="row">#</th>
+                    <th scope="row">First Name
+                    </th>
+                    <th scope="row">Last Name
+                    </th>
+                    <th scope="row">Login
+                    </thead>
+                    <tbody>
+                    {% for e in object.students.all %}
+                        <tr>
+                            <td>{{ e.id }}</td>
+                            <td>{{ e.first_name }}</td>
+                            <td>{{ e.last_name }}</td>
+                            <td>{{ e.login }}</td>
+                        </tr>
+                    {% endfor %}
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <a href="/sample-app/courses"> List </a>
+        <a href="/sample-app/courses/{{ object.id }}/update">Edit
+        </a>
+    </div>
+</div>

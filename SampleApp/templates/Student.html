@@ -1,0 +1,31 @@
+<div class="container">
+    <div>
+        <H2>Student </H2>
+    </div>
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header text-center">
+                <h4 class="modal-title w-100 font-weight-bold">Student Information</h4>
+            </div>
+            <div class="modal-body">
+                {% if form.error %}
+                    <p style="color: red;"> {{ form.message }}</p>
+                {% else %}
+                    <p style="color: green;"> {{ form.message }}</p>
+                {% endif %}
+
+                <form method="POST"> {% csrf_token %}
+                    {{ form.as_p }}
+                    <div class="form-group row">
+                        <div class="col-lg-12">
+                            <button type="submit" class="btn btn-primary form-control">Update
+                                <span class="fas fa-paper-plane"></span>
+                            </button>
+                            <a href="/sample-app/students"> List </a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

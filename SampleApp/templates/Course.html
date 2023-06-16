@@ -1,0 +1,16 @@
+<div class="modal-dialog" role="document">
+    <div class="modal-content">
+        <div class="modal-header text-center">
+            <h4 class="modal-title ">Course Information</h4>
+        </div>
+        <form method="post">{% csrf_token %}
+            {% if form.error %}
+                <p style="color: red;"> {{ form.message }}</p>
+            {% else %}
+                <p style="color: green;"> {{ form.message }}</p>
+            {% endif %}
+            {{ form.as_p }}
+            <input type="submit" value="Save">
+        </form>
+    </div>
+</div>
